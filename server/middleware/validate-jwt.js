@@ -5,11 +5,12 @@ const validateJWT = async (req, res, next) => {
     if (req.method == "OPTIONS") {
         next();
     } else if (
-        req.headers.authorization && 
+        req.headers.authorization &&  //checks if we have a token on our headers object AND if it includes
+        // the word "bearer"
         req.headers.authorization.includes("Bearer")
     ) {
         const {authorization} = req.headers;
-        console.log("authorization -->", authorization);
+        // console.log("authorization -->", authorization); //the token print out in the terminal 
         const payload = authorization
         ? jwt.verify(
             authorization.includes("Bearer")
@@ -19,14 +20,15 @@ const validateJWT = async (req, res, next) => {
         )
         : undefined;
 
-        console.log ("payload -->", payload);
+        // console.log ("payload -->", payload); //we can see how jwt decrypts the token and now we have access to the
+        // user id. Payload is an object, means we can use the dot notation
 
         if(payload) {
             let foundUser = await UserModel.findOne({ where: {id: payload.id} });
-            console.log("foundUser -->", foundUser);
+            // console.log("foundUser -->", foundUser);
 
             if (foundUser) {
-                console.log("request -->", req);
+                // console.log("request -->", req);
                 req.user = foundUser;
                 next();
             } else {
