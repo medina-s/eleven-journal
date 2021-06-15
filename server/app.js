@@ -3,6 +3,8 @@ const Express = require("express"); //we require the use of Express npm package
 const app = Express(); //firing off the top level of Express() function, a function exported by the Express module. This allows us to create an Express app
 const dbConnection = require("./db");
 
+app.use(require('./middleware/headers'));//we activate headers in the app.js
+
 const controllers = require("./controllers"); //we import the controllers as a bundle through the object that we just exported in the index.js and store it
 // in a var called controllers
 
