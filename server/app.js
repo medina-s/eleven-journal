@@ -11,7 +11,7 @@ const controllers = require("./controllers"); //we import the controllers as a b
 app.use(Express.json()); //adding a middleware function, it tells the application that we want
 //  json to be used as we process this request.
 
-app.use("/journal", controllers.journalController); // we call app use and in the first parameter create a base URL called Journal
+// app.use("/journal", controllers.journalController); // we call app use and in the first parameter create a base URL called Journal
 app.use("/user", controllers.userController);
 
 dbConnection.authenticate()
