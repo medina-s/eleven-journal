@@ -4,8 +4,8 @@
 function userSignUp() {
 //  console.log('userSignUp Function Called')
 
-let userEmail = document.getElementById("emailSignup").nodeValue;
-let userPass = document.getElementById("pwdSignup").nodeValue;
+let userEmail = document.getElementById("emailSignup").value;
+let userPass = document.getElementById("pwdSignup").value;
 
 let newUserData = {
     user: {
@@ -58,3 +58,13 @@ function tokenChecker() {
  console.log('tokenChecker Function Called')
 }
 tokenChecker()
+
+/* *************************
+ *** USER LOGOUT ***
+************************** */
+
+function userLogout() {
+    localStorage.setItem('SessionToken', undefined);
+    console.log(`SessionToken --> ${localStorage.SessionToken}`);
+    tokenChecker();
+}
