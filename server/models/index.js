@@ -1,7 +1,7 @@
 const UserModel = require("./user");
-const JournalModel = require("./journal"); //adding the import
+const JournalModel = require("./journal");
 
 module.exports = {
     UserModel,
-    JournalModel   //inserting that
+    JournalModel   
 };

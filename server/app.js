@@ -14,6 +14,9 @@ app.use(Express.json()); //adding a middleware function, it tells the applicatio
 // app.use("/journal", controllers.journalController); // we call app use and in the first parameter create a base URL called Journal
 app.use("/user", controllers.userController);
 
+// app.use(require("./middleware/validate-jwt"));
+app.use("/journal", controllers.journalController);
+
 dbConnection.authenticate()
     .then(()=> dbConnection.sync())
     .then(()=> {

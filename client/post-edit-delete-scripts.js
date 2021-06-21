@@ -26,7 +26,7 @@ fetch (`http://localhost:3000/journal/create`, {
 })
     .then(response => response.json())
     .then(data => {
-        console.log(date)
+        console.log(data);
         displayMine()
     })
     .catch(err => {
